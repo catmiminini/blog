@@ -2,7 +2,7 @@
 
 ## css
 
-- flex布局: flex-grow 和 flex-shrink 计算公式
+- flex 布局: flex-grow 和 flex-shrink 计算公式
 
 ## html
 
@@ -10,11 +10,15 @@
 
 ## JS
 
+## nodejs
+
+- 看完深入浅出 nodejs
+
 ### BOM
 
 ### DOM
 
-- 事件捕获和冒泡：`stopPropagation()`的各场景下的作用
+- 事件捕获和冒泡：`stopPropagation()`的各场景下的作用；`stopImmediatePropogation()`
 
 ### ES
 
