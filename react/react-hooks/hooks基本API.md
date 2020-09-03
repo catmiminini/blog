@@ -18,7 +18,24 @@ React Hooks 可以赋予函数组件使用 React 的各种特性的能。
 - `React.memo`：提供仅支持 `props` 的 `componentShouldUpdate` 特性
 - `useRef`：提供 ref 特性
 
-## 详解api
+## 详解 api
+
+## Hook 规则
+
+- 只在最顶层使用 Hook。不要在循环，条件或嵌套函数中调用 Hook， 确保总是在你的 React 函数的最顶层调用他们。遵守这条规则，你就能确保 Hook 在每一次渲染中都按照同样的顺序被调用。
+
+- 只在 React 函数中调用 Hook。不要在普通的 JavaScript 函数中调用 Hook。你可以：
+
+  - 在 React 的函数组件中调用 Hook
+  - 在自定义 Hook 中调用其他 Hook
+
+### 原因
+
+React 通过 Hook 调用的顺序判断 state 与 `useState` 的对应关系。循环，条件或嵌套函数可能会使 `useState` 的顺序改变，引发问题。如果要使用条件判断，可以将判断放到 Hook 的内部。
+
+### 插件
+
+- eslint-plugin-react-hooks
 
 ## 参考
 
