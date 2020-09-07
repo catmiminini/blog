@@ -133,17 +133,69 @@ node 命令与 npm 命令：
 
 - 异常处理：将异常作为回调函数的第一个参数；
 - 回调嵌套过深
-- 阻塞代码：只能使用setTimeout延迟执行
-- 多线程编程：浏览器使用webworker，node使用child_process。
+- 阻塞代码：只能使用 setTimeout 延迟执行
+- 多线程编程：浏览器使用 webworker，node 使用 child_process。
 - 异步转同步
 
 ### 3. 异步编程解决方案
 
 - 发布订阅模式
-- promise/deferred模式
+- promise/deferred 模式
 - 流程控制库
 
 #### 事件发布订阅模式
 
-Node自身提供的events模块是发布订阅的一个简单实现。
+Node 自身提供的 events 模块是发布订阅的一个简单实现。
+
+API：
+
+- addListener/on()
+- once()
+- removeListener()
+- removeAllListener()
+- emit()
+
+#### promise/deferred
+
+#### 流程执行库
+
+## 五、内存控制
+
+### 1. V8 的垃圾回收机制与内存限制
+
+V8 的垃圾回收机制：
+
+- 内存分代：新生代和老生代，使用不同的回收算法。
+- Scavenge 算法：两个 semispace From 空间 和 To 空间 的复制转移。在分代式垃圾回收中，需要判断对象晋升。晋升条件：经历过 Scavenge 回收；To 空间内存占比超过限制。
+- Mark-Sweep：标记清除，产生内存碎片。
+- Mark-Compact：标记压缩空间再清除，不产生内存碎片。
+- Incremental Marking：增量标记，延迟清理，增量式整理。
+
+## 六、理解 Buffer
+
+Node 作为服务端需要处理网络协议，数据库，图片和其他文件，有处理大量二进制数据的需求。传统的字符串类型不能满足这些需求，Buffer 对象应运而生。
+
+### 1. Buffer 结构
+
+通过 JS 核心模块与 C++内建模块组合实现。
+
+- Buffer 对象类似数组：`new Buffer(size)`
+
+8KB 界限：
+
+- 小对象（小于 8KB）：多个小对象在空间允许情况下共用一个 8KB slab。
+- 大对象（大于 8KB）：每个大对象对应一个 slab。
+
+### 2. Buffer 转换
+
+- 字符串转 Buffer：通过 Buffer 构造函数：`new Buffer(str, [encoding])`, 以及 write 方法：`buf.write(string, [offset],[length],[encoding])`
+- Buffer 转字符串：通过 toString(): `buf.toString([encoding], [start],[end])`
+
+### 3. Buffer 的拼接
+
+- Buffer 相加等于 toString 后字符串相加，Buffer 对象首尾的不完整宽字符会导致问题。
+- 通过 setEncoding()解决：`buf.setEncoding(encoding)`
+
+## 七、网络编程
+
 
