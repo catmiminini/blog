@@ -1,4 +1,4 @@
-# react-redux
+    # react-redux
 
 ## `connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])`
 

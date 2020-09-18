@@ -31,7 +31,31 @@
 
 dva = React-Router + Redux + Redux-saga
 
-##
+## model对象创建
+
+```js
+const Model = {
+  namespace: 'test',
+  state: {name:'name', age:'age'},
+  effets: {
+    *add(action, effects){}
+    *minus({payload}, {call, put}){}
+  },
+  reducer: {
+    add(state, action) {}
+    minus({name, age}, {payload}) {}
+  }
+}
+```
+
+## 外部修改model
+- connect
+
+```js
+const mapStateToProps = () => {}
+const mapDispatchToProps = (dispatch) => {}
+const wrapper = connect(mapStateToProps, mapDispatchToProps)(component)
+```
 
 ## others
 
