@@ -20,6 +20,24 @@ React Hooks 可以赋予函数组件使用 React 的各种特性的能。
 
 ## 详解 api
 
+### `useState`
+
+- `useState`返回一个元组, 对应 state 对象和 setState 方法.
+- `useState`接收一个单次使用的初始状态, 这个初始状态可以是原始数据和对象, 也可以是返回原始类型和对象的方法.
+- `setState`方法可以更新对应的 state. 它的参数可以是一个新状态, 也可以接收一个方法从旧状态计算返回新状态.
+
+```js
+const [state, setState] = useState(initialState);
+const [state, setState] = useState(() => computeInitialState(props));
+
+setState(newState);
+setState((prevState) => computeNewState(prevState));
+```
+
+### `useEffect`
+
+-
+
 ## Hook 规则
 
 - 只在最顶层使用 Hook。不要在循环，条件或嵌套函数中调用 Hook， 确保总是在你的 React 函数的最顶层调用他们。遵守这条规则，你就能确保 Hook 在每一次渲染中都按照同样的顺序被调用。
@@ -41,3 +59,4 @@ React 通过 Hook 调用的顺序判断 state 与 `useState` 的对应关系。�
 
 - [React Hooks 解析（上）：基础](https://segmentfault.com/a/1190000018928587)
 - [React Hooks 解析（下）：进阶](https://segmentfault.com/a/1190000018950566)
+- [Hook API 索引](https://zh-hans.reactjs.org/docs/hooks-reference.html)
