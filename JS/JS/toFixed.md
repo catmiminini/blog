@@ -3,6 +3,7 @@
 ```js
 function toFixed(num, digits) {
   num = Math.round(num * 10 ** digits);
+  // 使用正则表达式的匹配位置的(?:a)和捕获括号()和引用$1
   return num.toString().replace(/(?:(\d{digits}$))/, ".$1");
 }
 
