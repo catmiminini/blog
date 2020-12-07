@@ -73,3 +73,30 @@ className使用起来与正常的dom class相同, 但会有命名冲突.
 
 - inline style: 完全使用内联样式
 - css modules: 编译css文件, 将类名做hash处理之类的, 避免命名冲突.
+
+CSS历史上的问题:
+- 全局污染
+- 命名混乱
+- 依赖管理不彻底
+- 无法共享变量
+- 代码压缩不彻底
+
+### CSS Modules模块化方案
+
+- 使用了:import :export, 两个新增的伪类
+- 启用CSS Modules in webpack: `css!modules&localIdentName=[name]__[local]-[hash:base64:5]`, 达到了{样式局部化}, {class命名规范,可压缩}, {js引用}, {无额外学习成本}.
+- 默认相当于`:local`, `:global`会产生直接安装类名生成全局className.
+- 使用composes来组合样式 (只有这一种复用方式?)
+
+> 命名技巧BEM: Block__Element--Modifier
+
+4. 组件间通信
+- 父->子: props
+- 子->父: 回调函数
+- 父->孙孙: context
+- 兄->弟: eventEmiter
+
+5. 组件间抽象: 组件化
+- mixin: 很多坏处, 已经被更好的方案--高阶组件代替
+- 高阶组件HOC:
+   - 属性代理:
