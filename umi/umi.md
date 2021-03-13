@@ -10,6 +10,13 @@
 7. Mock数据：Umi 约定 /mock 文件夹下所有文件为 mock 文件。
 8. 环境变量：Umi 中约定根目录下的 .env 为环境变量配置文件。
 
+## 配置
+
+1. 配置文件: .umirc.ts > config/config.ts
+2. ts提示: defineConfig(Config)
+3. 本地临时配置: .umirc.ts -> .umirc.local.ts ,  config/config.ts -> config/config.local.ts
+4. 多环境多配置:  优先读取 .local.ts > UMI_ENV; 使用UMI_ENV=cloud, 以读取.umirc.cloud.js中的配置.
+
 ## API
 
 ### umi/withRouter
@@ -19,3 +26,48 @@
 ### umi/link
 
 - Link组件
+
+## package.json
+
+```js
+"dependencies": {
+    "@ant-design/pro-layout": "^6.5.0",
+    "@umijs/preset-react": "1.x",
+    "umi": "^3.3.3"
+},
+"devDependencies": {
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@umijs/test": "^3.3.3",
+    "lint-staged": "^10.0.7",
+    "prettier": "^2.2.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "typescript": "^4.1.2",
+    "yorkie": "^2.0.0"
+}
+```
+
+### 1. 使用antd-pro的布局
+
+1. 安装@ant-design/pro-layout
+2. 编辑`.umirc.ts`配置`layout:{}`
+
+### 2. 使用@umijs/preset-react
+
+包含布局、权限、国际化、dva、简易数据流等常用功能.
+
+### 3. umi
+
+
+
+### 1. lint-staged
+
+一个shell脚本, 在git-stage的时候执行lint.
+
+### 2. prettier
+
+### 3. yorkie
+
+另一个版本的husky
+
