@@ -89,9 +89,50 @@ grid布局提供了对行列,单元格和网格线的相关属性.
 
 ## 项目属性
 
-1. 
+1. `grid-column-start` `grid-column-end` `grid-column-start` `grid-column-end`:  指定项目单元格边框对应的网格线.
 
+   ```css
+   /* 表示从第1条网格线到第3条网格线 */
+   .item-1 {
+     grid-column-start: 1;
+     grid-column-end: 3;
+   }
+   /* 指定网格线名称 */
+   .item-1 {
+     grid-column-start: header-start;
+     grid-column-end: header-end;
+   }
+   /* 指定跨度 */
+   .item-1 {
+     grid-column-start: span 2;
+   }
+   ```
 
+   > 可能出现项目重叠, 当项目重叠时, 使用`z-index`属性指定项目的重叠顺序.
+
+2. `grid-column` `grid-row`: `grid-column-start` `grid-column-end`的简写.
+
+   ```css
+   .item-1 {
+     grid-column: 1 / 3;
+   }
+   ```
+
+3. `grid-area`: 指定项目渲染区域;  也可以作为`grid-column-start` `grid-column-end` `grid-column-start` `grid-column-end`的简写.
+
+   ```css
+   .item-1 {
+     grid-area: e;
+   }
+   .item-1 {
+     /*   grid-area: <row-start> / <column-start> / <row-end> / <column-end> */
+     grid-area: 1 / 1 / 3 / 3;
+   }
+   ```
+
+4. `justify-self` `align-self` `place-self`: 
+
+   `justify-self`属性设置单元格内容的水平位置（左中右），跟`justify-items`属性的用法完全一致，但只作用于单个项目。
 
 ## 使用
 
