@@ -22,7 +22,7 @@ grid布局提供了对行列,单元格和网格线的相关属性.
    2. 相对长度:`50% 50%`, 表示各占50%;
    3. 相对长度: `1fr 2fr`, 表示第一个行占1/3; 第二个行占2/3;
    4. auto: 自动填充;
-   5. repeat(): `repeat(3, 33.3%)`, `repeat(auto-fill, 50%)`, `repeat(3, 100px, 200px 300px)`
+   5. repeat(): `repeat(3, 33.3%)`, `repeat(auto-fill, 50%)`, `repeat(3, 100px, 200px, 300px)`
    6. Maxmin(): `maxmin(100px, 1fr)`;
 
    定义行和列时, 也可以给网格线命名: `[c1] 100px [c2] 100px [c3]`,  得到3条网格线 c1,c2,c3;
