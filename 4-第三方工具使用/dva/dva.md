@@ -1,5 +1,5 @@
 # dva
-
+dva = React-Router + Redux + Redux-saga
 类似于redux和mobx的数据流管理框架
 
 ## 概念
